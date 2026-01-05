@@ -79,7 +79,7 @@ export default function KidzMondoPage() {
 
               {/* INTRO */}
               <div className="desc-blog">
-                <p className="bodytitle">Overall Concept</p>
+                <h5 className="title-desc">Overall Concept</h5>
                 <p className="body-2">
                   KidzMondo is a replica of a real-life city which provides
                   children between the ages of 2 to 14 with role play activities
@@ -92,7 +92,7 @@ export default function KidzMondoPage() {
                   as good adult citizens would in real life.
                 </p>
 
-                <p className="bodytitle">Objective</p>
+                <h5 className="title-desc">Objective</h5>
                 <p className="body-2">
                   KidzMondo aims to compliment local school curricula and seeks
                   to teach children basic citizenship values and rules,
@@ -220,7 +220,7 @@ export default function KidzMondoPage() {
                 </div>
 
                 <div className="desc-blog">
-                  <h5 className="title-desc">Entertainment</h5>
+                  <h5 className="title-desc" style={{marginTop:"50px"}}>Entertainment</h5>
                   <p className="body-2">
                     Children can choose between 120+ different professions which
                     are practiced in replica of the most representative
@@ -232,7 +232,7 @@ export default function KidzMondoPage() {
                 </div>
 
                 <div className="desc-blog">
-                  <h5 className="title-desc">Edutainment Competencies</h5>
+                  <h5 className="title-desc"  style={{marginTop:"50px"}}>Edutainment Competencies</h5>
                   <p className="body-2">
                     The KidzMondo experience develops a wide range of
                     competencies:
@@ -256,7 +256,7 @@ export default function KidzMondoPage() {
               </div>
 
               {/* TABLE */}
-              <div style={{ marginTop: 40 }}>
+              <div >
                 <KidzMondoFormatsTable />
               </div>
             </div>
