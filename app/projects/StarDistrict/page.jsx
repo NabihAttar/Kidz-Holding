@@ -44,7 +44,7 @@ export default function StarDistrict() {
       {/* HERO */}
       <div className="page-hero">
         <Image
-          src="/image/page-title/our-ventures (1).png"
+          src="/image/page-title/star-banner (1).jpg"
           alt="Star District Hero"
           width={1920}
           height={1080}
@@ -59,20 +59,27 @@ export default function StarDistrict() {
             <div className="blog-content blog-details-2-content blog-details-content">
               {/* Title */}
               <div className="blog-details-top">
-                <h2
-                  style={{
-                    color: "#000",
-                    fontFamily: "Arial, Helvetica, sans-serif",
-                    fontSize: "32px",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    padding: "20px 0",
-                    margin: 0,
-                  }}
-                >
-                  Star District
-                </h2>
-              </div>
+               <div
+                 style={{
+                   display: "flex",
+                   justifyContent: "center",
+                   alignItems: "center",
+                   width: "100%",
+                   // padding: "0px 0",
+                   margin: 0,
+                   marginTop: "-60px",
+                 }}
+               >
+                 <Image
+                   src="/image/logos/Star District logo.svg"
+                   alt="KidzMondo"
+                   width={260}
+                   height={80}
+                   priority
+                   style={{ height: "auto" }}
+                 />
+               </div>
+             </div>
 
               {/* Main image */}
               <div className="image-blog">

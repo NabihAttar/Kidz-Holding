@@ -46,7 +46,7 @@ export default function KarnavaliPage() {
       {/* HERO IMAGE */}
       <div className="kidz-hero">
         <Image
-          src="/image/page-title/karnavali banner.jpg"
+          src="/image/page-title/Karanavali-banner (1).jpg"
           alt="Karnavali Banner"
           width={1920}
           height={1080}
@@ -59,21 +59,28 @@ export default function KarnavaliPage() {
         <div className="row">
           <div className="col-12">
             <div className="blog-content blog-details-2-content blog-details-content">
-              <div className="blog-details-top">
-                <h2
-                  style={{
-                    color: "#000",
-                    fontFamily: "Arial, Helvetica, sans-serif",
-                    fontSize: "32px",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    padding: "20px 0",
-                    margin: 0,
-                  }}
-                >
-                  Karnavali
-                </h2>
-              </div>
+             <div className="blog-details-top">
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                width: "100%",
+                                // padding: "0px 0",
+                                margin: 0,
+                                marginTop: "-60px",
+                              }}
+                            >
+                              <Image
+                                src="/image/logos/Karnavali logo.svg"
+                                alt="KidzMondo"
+                                width={260}
+                                height={80}
+                                priority
+                                style={{ height: "auto" }}
+                              />
+                            </div>
+                          </div>
 
               {/* Main Image */}
               <div className="image-blog">

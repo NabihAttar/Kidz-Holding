@@ -51,20 +51,27 @@ export default function TheEscapeParkandResort() {
           <div className="col-12">
             <div className="blog-content blog-details-2-content blog-details-content">
               <div className="blog-details-top">
-                <h2
-                  style={{
-                    color: "#000",
-                    fontFamily: "Arial, Helvetica, sans-serif",
-                    fontSize: "32px",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    padding: "20px 0",
-                    margin: 0,
-                  }}
-                >
-                  The Escape Park &amp; Resort
-                </h2>
-              </div>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      // padding: "0px 0",
+      margin: 0,
+      marginTop: "-60px",
+    }}
+  >
+    <Image
+      src="/image/logos/The Escape logo.svg"
+      alt="KidzMondo"
+      width={260}
+      height={80}
+      priority
+      style={{ height: "auto" }}
+    />
+  </div>
+</div>
 
               {/* MAIN IMAGE */}
               <div className="image-blog">

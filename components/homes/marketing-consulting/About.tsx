@@ -13,7 +13,7 @@ export default function About() {
             <div className="about-left mr-10">
               <div className="image item-1 tf-animate-1">
                 <Image
-                  src="/image/section/Home – 1_ 450x600.jpg"
+                  src="/image/section/image-2 (1).jpg"
                   alt="Team collaborating"
                   className="lazyload"
                   width={450}
@@ -22,7 +22,7 @@ export default function About() {
               </div>
               <div className="image item item-2 tf-animate-3">
                 <Image
-                  src="/image/section/Home – 2 _ 320x320.png"
+                  src="/image/section/image-1 (1).jpg"
                   alt="Analytics dashboard"
                   className="lazyload"
                   width={320}
