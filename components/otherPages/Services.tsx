@@ -127,13 +127,12 @@ export default function Services() {
             <div className="heading-section text-center">
               <div className="text-anime-wave-1">
                 <a href="#" className="tag label text-btn-uppercase">
-                  Discover Our Projects
+                  Our Brands
                 </a>
               </div>
 
               <h3 className="title-section text-anime-wave-1 mb-12">
-                Designing Experiences Across Every Leisure and Lifestyle <br />
-                Industry
+                 Discover Our Projects
               </h3>
 
               <div className="sub-title body-2 color-on-suface-container text-anime-wave-1">
