@@ -406,7 +406,7 @@ export default function Nav() {
       
 
        {/* BLOGS */}
-      <li
+      {/* <li
         className={`menu-item ${
           isMenuActive({ href: "/blog" } as MenuLink) ? "current-menu-item" : ""
         }`}
@@ -414,7 +414,7 @@ export default function Nav() {
         <Link href="/blog" className="item-link">
           Blogs
         </Link>
-      </li>
+      </li> */}
       {/* <li
         className={`menu-item ${
           isMenuActive({ href: "/contact-us" } as MenuLink) ? "current-menu-item" : ""

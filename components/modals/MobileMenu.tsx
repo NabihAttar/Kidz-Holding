@@ -221,7 +221,7 @@ export default function MobileMenu() {
 
 
             {/* BLOGS */}
-            <li
+            {/* <li
               className={`menu-item ${
                 isMenuActive({ href: "/blog" } as MenuLink)
                   ? "current-menu-mobile-item"
@@ -231,7 +231,7 @@ export default function MobileMenu() {
               <Link href="/blog" className="item-link">
                 Blogs
               </Link>
-            </li>
+            </li> */}
 
              {/* <li
               className={`menu-item ${

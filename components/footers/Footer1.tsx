@@ -141,9 +141,9 @@ export default function Footer1({ parentClass = "footer" }) {
                       <li className="support-item-footer caption-1">
                         <a href="/Franchise-Partnership">Franchise & Partnership</a>
                       </li>
-                      <li className="support-item-footer caption-1">
+                      {/* <li className="support-item-footer caption-1">
                         <a href="/blog">Blogs</a>
-                      </li>
+                      </li> */}
                       {/* <li className="support-item-footer caption-1">
                         <Link href={`/Business-Ventures`}>Business Ventures</Link>
                       </li> */}
