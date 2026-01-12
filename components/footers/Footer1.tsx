@@ -85,11 +85,11 @@ export default function Footer1({ parentClass = "footer" }) {
                   </div>
                   <div className="tf-collapse-content">
                     <ul>
-                      {/* <li className="support-item-footer caption-1">
+                      <li className="support-item-footer caption-1">
                         <Link href={`/projects/BowlNRock`}>
                           Bowi N Rock
                         </Link>
-                      </li> */}
+                      </li>
                       <li className="support-item-footer caption-1">
                         <Link href={`/projects/Karnavali`}>Karnavali</Link>
                       </li>
@@ -99,7 +99,7 @@ export default function Footer1({ parentClass = "footer" }) {
                       <li className="support-item-footer caption-1">
                         <Link href={`/projects/KidzMondo`}>Kidz Mondo</Link>
                       </li>
-                      {/* <li className="support-item-footer caption-1">
+                      <li className="support-item-footer caption-1">
                         <Link href={`/projects/KMInnovationCenter`}>
                           KM Innovation Center
                         </Link>
@@ -108,8 +108,8 @@ export default function Footer1({ parentClass = "footer" }) {
                         <Link href={`/projects/StarDistrict`}>
                           Star District
                         </Link>
-                      </li> */}
-                      {/* <li className="support-item-footer caption-1">
+                      </li>
+                      <li className="support-item-footer caption-1">
                         <Link href={`/projects/TheEscapeParkandResort`}>
                           The Escape Park & Resort
                         </Link>
@@ -118,7 +118,7 @@ export default function Footer1({ parentClass = "footer" }) {
                         <Link href={`/projects/UrbanVillage`}>
                           Urban Village
                         </Link>
-                      </li> */}
+                      </li>
                     </ul>
                   </div>
                 </div>

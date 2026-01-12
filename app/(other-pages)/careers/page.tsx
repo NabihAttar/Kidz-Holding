@@ -41,7 +41,7 @@ export default function page() {
  <Services />
 
 
-        <Career />
+        {/* <Career /> */}
         {/* <Contact />
         <Map />
         <Locations /> */}

@@ -41,6 +41,7 @@
 //     </>
 //   );
 // }
+
 import Header5 from "@/components/headers/Header5";
 import Services1 from "@/components/common/Services";
 import About from "@/components/homes/marketing-consulting/About";
@@ -86,7 +87,7 @@ export default function Page() {
         {/* <Services1 /> */}
         {/* <Process /> */}
         {/* <Services /> */}
-        <Blogs />
+        {/* <Blogs /> */}
         {/* <Team /> */}
         <Process />
 
