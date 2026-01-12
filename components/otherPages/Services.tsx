@@ -1,5 +1,122 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+
+type Project = {
+  href: string;
+  title: string;
+  logoSrc: string;
+  logoAlt: string;
+  logoW: number;
+  logoH: number;
+};
+
+const projects: Project[] = [
+  {
+    href: "/projects/KidzMondo",
+    title: "KidzMondo",
+    logoSrc: "/image/logos/Kidzmondo logo.svg",
+    logoAlt: "KidzMondo",
+    logoW: 160,
+    logoH: 50,
+  },
+  {
+    href: "/projects/TheEscapeParkandResort",
+    title: "The Escape Park & Resort",
+    logoSrc: "/image/logos/The Escape logo.svg",
+    logoAlt: "The Escape Park & Resort",
+    logoW: 190,
+    logoH: 50,
+  },
+  {
+    href: "/projects/Karnavali",
+    title: "Karnavali",
+    logoSrc: "/image/logos/Karnavali logo.svg",
+    logoAlt: "Karnavali",
+    logoW: 170,
+    logoH: 50,
+  },
+  {
+    href: "/projects/StarDistrict",
+    title: "Star District",
+    logoSrc: "/image/logos/Star District logo.svg",
+    logoAlt: "Star District",
+    logoW: 170,
+    logoH: 50,
+  },
+  {
+    href: "/projects/KMInnovationCenter",
+    title: "KM Innovation Center",
+    logoSrc: "/image/logos/KM logo.svg",
+    logoAlt: "KM Innovation Center",
+    logoW: 190,
+    logoH: 50,
+  },
+  {
+    href: "/projects/UrbanVillage",
+    title: "Urban Village",
+    logoSrc: "/image/logos/Urban Village logo.svg",
+    logoAlt: "Urban Village",
+    logoW: 170,
+    logoH: 50,
+  },
+  {
+    href: "/projects/BowlNRock",
+    title: "BOWL N ROCK",
+    logoSrc: "/image/logos/Bowl N Rock logo.svg",
+    logoAlt: "Bowl N Rock",
+    logoW: 160,
+    logoH: 50,
+  },
+];
+
+function TitleWithLogo({
+  title,
+  logoSrc,
+  logoAlt,
+  logoW,
+  logoH,
+}: {
+  title: string;
+  logoSrc: string;
+  logoAlt: string;
+  logoW: number;
+  logoH: number;
+}) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 10,
+      }}
+    >
+      <h6 style={{ margin: 0, width: "100%", textAlign: "center" }}>
+        <span className="name-industry">{title}</span>
+      </h6>
+
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Image
+          src={logoSrc}
+          alt={logoAlt}
+          width={logoW}
+          height={logoH}
+          priority
+          style={{ height: "auto", maxWidth: "100%" }}
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function Services() {
   return (
@@ -13,13 +130,15 @@ export default function Services() {
                   Discover Our Projects
                 </a>
               </div>
+
               <h3 className="title-section text-anime-wave-1 mb-12">
                 Designing Experiences Across Every Leisure and Lifestyle <br />
                 Industry
-
               </h3>
+
               <div className="sub-title body-2 color-on-suface-container text-anime-wave-1">
-                See how our vision turns imagination into real-world experiences          </div>
+                See how our vision turns imagination into real-world experiences
+              </div>
             </div>
           </div>
         </div>
@@ -27,209 +146,28 @@ export default function Services() {
 
       <div className="tf-container position-relative">
         <div className="row rg-20">
-          {/* KidzMondo */}
-          <div className="col-lg-4 col-md-6">
-            <Link
-              href="/projects/KidzMondo"
-              className="industry-item style-2 block no-underline"
-            >
-              <div className="top">
-                {/* <div className="icon">
-                  <i className="icon-Bank" />
-                </div> */}
-                <h6>
-                  <span className="name-industry">KidzMondo</span>
-                </h6>
-              </div>
-              <div className="desc">
-                A child-sized city where learning meets play, empowering kids to
-                explore real-world roles, earn, spend, and grow through
-                hands-on discovery.
-              </div>
-            </Link>
-          </div>
+          {projects.map((p) => (
+            // ✅ Make each Bootstrap column a flex container
+            <div className="col-lg-4 col-md-6 industry-col" key={p.href}>
+              <Link
+                href={p.href}
+                // ✅ Make the card stretch to fill the column height
+                className="industry-item style-2 no-underline industry-card"
+              >
+                <div className="top">
+                  <TitleWithLogo
+                    title={p.title}
+                    logoSrc={p.logoSrc}
+                    logoAlt={p.logoAlt}
+                    logoW={p.logoW}
+                    logoH={p.logoH}
+                  />
+                </div>
 
-          {/* The Escape Park & Resort */}
-          <div className="col-lg-4 col-md-6">
-            <Link
-              href="/projects/TheEscapeParkandResort"
-              className="industry-item style-2 block no-underline"
-            >
-              <div className="top">
-                {/* <div className="icon">
-                  <i className="icon-FirstAidKit" />
-                </div> */}
-                <h6>
-                  <span className="name-industry">
-                    The Escape Park &amp; Resort
-                  </span>
-                </h6>
-              </div>
-              <div className="desc">
-                A family destination blending leisure, education, and adventure,
-                offering multi-sensory nature experiences that inspire wellness
-                and togetherness.
-              </div>
-            </Link>
-          </div>
-
-          {/* Karnavali */}
-          <div className="col-lg-4 col-md-6">
-            <Link
-              href="/projects/Karnavali"
-              className="industry-item style-2 block no-underline"
-            >
-              <div className="top">
-                {/* <div className="icon">
-                  <svg
-                    width={32}
-                    height={32}
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0_9360_11765)">
-                      <path
-                        d="M6 24L26 24C27.1046 24 28 23.1046 28 22L28 8C28 6.89543 27.1046 6 26 6L6 6C4.89543 6 4 6.89543 4 8L4 22C4 23.1046 4.89543 24 6 24Z"
-                        stroke="#24283E"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M20 28H12"
-                        stroke="#24283E"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_9360_11765">
-                        <rect width={32} height={32} fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div> */}
-                <h6>
-                  <span className="name-industry">Karnavali</span>
-                </h6>
-              </div>
-              <div className="desc">
-                A dynamic indoor carnival offering multi-activity entertainment
-                that combines creativity, challenge, and pure fun for every
-                family member.
-              </div>
-            </Link>
-          </div>
-
-          {/* Star District */}
-          <div className="col-lg-4 col-md-6">
-            <Link
-              href="/projects/StarDistrict"
-              className="industry-item style-2 block no-underline"
-            >
-              <div className="top">
-                {/* <div className="icon">
-                  <i className="icon-LightbulbFilament" />
-                </div> */}
-                <h6>
-                  <span className="name-industry">Star District</span>
-                </h6>
-              </div>
-              <div className="desc">
-                An interactive entertainment center where young talents discover
-                their passion for art, music, fashion, and performance in a
-                world built for stars.
-              </div>
-            </Link>
-          </div>
-
-          {/* Kidz Academy */}
-          <div className="col-lg-4 col-md-6">
-            <Link
-              href="/projects/KidzAcademy"
-              className="industry-item style-2 block no-underline"
-            >
-              <div className="top">
-                {/* <div className="icon">
-                  <i className="icon-AirplaneTakeoff" />
-                </div> */}
-                <h6>
-                  <span className="name-industry">Kidz Academy</span>
-                </h6>
-              </div>
-              <div className="desc">
-                A space where movement meets learning, helping children grow
-                stronger, more confident, and creatively inspired.
-              </div>
-            </Link>
-          </div>
-
-          {/* KM Innovation Center */}
-          <div className="col-lg-4 col-md-6">
-            <Link
-              href="/projects/KMInnovationCenter"
-              className="industry-item style-2 block no-underline"
-            >
-              <div className="top">
-                {/* <div className="icon">
-                  <i className="icon-Wrench" />
-                </div> */}
-                <h6>
-                  <span className="name-industry">KM Innovation Center</span>
-                </h6>
-              </div>
-              <div className="desc">
-                A tech-driven zone where kids explore coding, robotics, and
-                design thinking through creative hands-on learning.
-              </div>
-            </Link>
-          </div>
-
-          {/* Urban Village */}
-          <div className="col-lg-4 col-md-6">
-            <Link
-              href="/projects/UrbanVillage"
-              className="industry-item style-2 block no-underline"
-            >
-              <div className="top">
-                {/* <div className="icon">
-                  <i className="icon-Warehouse" />
-                </div> */}
-                <h6>
-                  <span className="name-industry">Urban Village</span>
-                </h6>
-              </div>
-              <div className="desc">
-                An integrated family complex where families, kids, and young
-                adults come together to play, dine, shop, and unwind in one
-                connected community.
-              </div>
-            </Link>
-          </div>
-
-          {/* BOWL N ROCK */}
-          <div className="col-lg-4 col-md-6">
-            <Link
-              href="/projects/BowlNRock"
-              className="industry-item style-2 block no-underline"
-            >
-              <div className="top">
-                {/* <div className="icon">
-                  <i className="icon-Basket" />
-                </div> */}
-                <h6>
-                  <span className="name-industry">BOWL N ROCK</span>
-                </h6>
-              </div>
-              <div className="desc">
-                A child-sized city where learning meets play, empowering kids to
-                explore real-world roles, earn, spend, and grow through
-                hands-on discovery.
-              </div>
-            </Link>
-          </div>
+                {/* description removed */}
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </section>

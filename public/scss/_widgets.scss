@@ -3461,3 +3461,32 @@
 }
 
 // -----test--------------------
+.industry-title-wrap {
+  width: 100%;
+  // display: flex;
+  justify-content: center;
+}
+
+.industry-title {
+  margin: 0; // optional
+  text-align: center;
+}
+
+.industry-title .name-industry {
+  display: inline-block;
+  float: none !important; // in case something is floating it
+}
+
+
+.industry-col {
+  display: flex;
+}
+
+.industry-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px; // change this to the height you want
+}
