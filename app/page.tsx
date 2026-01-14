@@ -89,7 +89,7 @@ export default function Page() {
         {/* <Services /> */}
         {/* <Blogs /> */}
         {/* <Team /> */}
-        <Process />
+        {/* <Process /> */}
 
         <Faqs />
         <Cta />
