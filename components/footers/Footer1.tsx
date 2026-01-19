@@ -114,11 +114,11 @@ export default function Footer1({ parentClass = "footer" }) {
                           The Escape Park & Resort
                         </Link>
                       </li>
-                      <li className="support-item-footer caption-1">
+                      {/* <li className="support-item-footer caption-1">
                         <Link href={`/projects/UrbanVillage`}>
                           Urban Village
                         </Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 </div>

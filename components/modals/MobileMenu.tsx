@@ -41,7 +41,7 @@ export default function MobileMenu() {
     { href: "/projects/StarDistrict", title: "Star District" },
     // { href: "/projects/KidzAcademy", title: "Kidz Academy" },
     { href: "/projects/KMInnovationCenter", title: "KM Innovation Center" },
-    { href: "/projects/UrbanVillage", title: "Urban Village" },
+    // { href: "/projects/UrbanVillage", title: "Urban Village" },
     { href: "/projects/BowlNRock", title: "BOWL N ROCK" },
   ];
 
