@@ -100,14 +100,14 @@ export default function Features() {
                   </div>
 
                   {/* item 6 (kept as requested) */}
-                  <div className="benefit-items">
+                  {/* <div className="benefit-items">
                     <div className="icon wow fadeInUp">
                       <i className="icon-checkbox" />
                     </div>
                     <div className="title wow fadeInUp" data-wow-delay=".1s">
                       High-return franchise model with CSR value
                     </div>
-                  </div>
+                  </div> */}
 
                   {/*
                   <div className="benefit-items">

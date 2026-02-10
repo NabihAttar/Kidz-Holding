@@ -45,22 +45,6 @@ const projects: Project[] = [
     logoH: 50,
   },
   {
-    href: "/projects/KMInnovationCenter",
-    title: "KM Innovation Center",
-    logoSrc: "/image/logos/KM logo.svg",
-    logoAlt: "KM Innovation Center",
-    logoW: 190,
-    logoH: 50,
-  },
-  {
-    href: "/projects/UrbanVillage",
-    title: "Urban Village",
-    logoSrc: "/image/logos/Urban Village logo.svg",
-    logoAlt: "Urban Village",
-    logoW: 170,
-    logoH: 50,
-  },
-  {
     href: "/projects/BowlNRock",
     title: "BOWL N ROCK",
     logoSrc: "/image/logos/Bowl N Rock logo.svg",
@@ -68,16 +52,24 @@ const projects: Project[] = [
     logoW: 160,
     logoH: 50,
   },
+  {
+    href: "/projects/KMInnovationCenter",
+    title: "KM Innovation Center",
+    logoSrc: "/image/logos/KM logo.svg",
+    logoAlt: "KM Innovation Center",
+    logoW: 190,
+    logoH: 50,
+  },
+
+  
 ];
 
 function TitleWithLogo({
-  title,
   logoSrc,
   logoAlt,
   logoW,
   logoH,
 }: {
-  title: string;
   logoSrc: string;
   logoAlt: string;
   logoW: number;
@@ -90,13 +82,8 @@ function TitleWithLogo({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: 10,
       }}
     >
-      <h6 style={{ margin: 0, width: "100%", textAlign: "center" }}>
-        <span className="name-industry">{title}</span>
-      </h6>
-
       <div
         style={{
           width: "100%",
@@ -132,12 +119,8 @@ export default function Services() {
               </div>
 
               <h3 className="title-section text-anime-wave-1 mb-12">
-                 Discover Our Projects
+                Discover Our Brands
               </h3>
-
-              <div className="sub-title body-2 color-on-suface-container text-anime-wave-1">
-                See how our vision turns imagination into real-world experiences
-              </div>
             </div>
           </div>
         </div>
@@ -146,24 +129,19 @@ export default function Services() {
       <div className="tf-container position-relative">
         <div className="row rg-20">
           {projects.map((p) => (
-            // ✅ Make each Bootstrap column a flex container
             <div className="col-lg-4 col-md-6 industry-col" key={p.href}>
               <Link
                 href={p.href}
-                // ✅ Make the card stretch to fill the column height
                 className="industry-item style-2 no-underline industry-card"
               >
                 <div className="top">
                   <TitleWithLogo
-                    title={p.title}
                     logoSrc={p.logoSrc}
                     logoAlt={p.logoAlt}
                     logoW={p.logoW}
                     logoH={p.logoH}
                   />
                 </div>
-
-                {/* description removed */}
               </Link>
             </div>
           ))}

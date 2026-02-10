@@ -83,7 +83,7 @@ export default function Features({
                     <i className="icon-checkbox" />
                   </div>
                   <div className="title wow fadeInUp" data-wow-delay=".1s">
-                    Access to expert training and marketing resources.
+                    Access to expert training and marketing resources
                   </div>
                 </div>
                  <div className="benefit-items">

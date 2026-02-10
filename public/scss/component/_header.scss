@@ -1361,3 +1361,8 @@
         }
     }
 }
+.dropdown-select__menu {
+  height: 260px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
