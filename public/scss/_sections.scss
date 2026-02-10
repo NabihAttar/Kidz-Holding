@@ -2769,10 +2769,115 @@ background-image: url("/image/page-title/our-ventures (1).png");
   animation-play-state: paused;
 }
 
+/* =======================
+   PAGE SCOPE
+======================= */
+.kidz-page {
+  width: 100%;
+}
 
+/* =======================
+   HERO
+======================= */
+.kidz-hero {
+  width: 100%;
+  overflow: hidden;
+}
 
+.kidz-hero__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
 
+/* =======================
+   ✅ WIDTH NORMALIZER
+   Everything after hero = same width
+======================= */
 
+/* 1) kill theme max-width/padding on blog wrappers */
+.kidz-page .blog-details-content,
+.kidz-page .blog-details-2-content,
+.kidz-page .blog-content {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 2) if inner components add their own container inside tf-container (nested container issue) */
+.kidz-page .tf-container .container,
+.kidz-page .tf-container .tf-container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* =======================
+   OVERVIEW
+======================= */
+.kidz-overview {
+  background: #fff;
+  margin-top: -70px;
+  padding: 70px 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.kidz-overview__grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+  padding-left: 150px;
+  padding-right: 200px;
+}
+
+.kidz-overview__logo img {
+  max-width: 260px;
+  height: auto;
+  display: block;
+}
+
+.kidz-overview__title {
+  margin: 0 0 12px 0;
+  line-height: 1.15;
+}
+
+.kidz-overview__h {
+  margin: 18px 0 10px 0;
+}
+
+.kidz-overview__p {
+  margin: 0 0 14px 0;
+  max-width: none;
+  opacity: 0.9;
+}
+
+/* =======================
+   MAIN
+======================= */
+.kidz-main {
+  margin-top: 22px;
+}
+
+.kidzmondo-gallery {
+  width: 100%;
+}
+
+.kidz-sections {
+  margin-top: 26px;
+}
+
+.kidz-sections__mt {
+  margin-top: 50px;
+}
+
+/* =======================
+   TABLE / CARDS (your existing, unchanged)
+======================= */
 .kidz-formats {
   margin: 32px 0;
 }
@@ -2829,7 +2934,7 @@ background-image: url("/image/page-title/our-ventures (1).png");
   font-weight: 800;
   border-bottom: 1px solid rgba(15, 23, 42, 0.12);
   background: rgba(15, 23, 42, 0.02);
-  position: sticky; /* nice when scrolling horizontally */
+  position: sticky;
   left: 0;
 }
 
@@ -2852,7 +2957,7 @@ background-image: url("/image/page-title/our-ventures (1).png");
 
 .kidz-table tbody tr:hover td,
 .kidz-table tbody tr:hover th {
-  background: #C9EFFC; /* soft yellow hover */
+  background: #c9effc;
 }
 
 .kidz-cards {
@@ -2909,133 +3014,16 @@ background-image: url("/image/page-title/our-ventures (1).png");
   }
 }
 
-
-.escape-hero {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+/* =======================
+   BRANDS
+======================= */
+.kidz-brands {
+  padding: 40px 0;
 }
 
-@media (max-width: 992px) {
-  .escape-hero {
-    height: 320px;
-  }
-}
-
-@media (max-width: 768px) {
-  .escape-hero {
-    height: 220px; 
-  }
-}
-@media (max-width: 768px) {
-  .escape-hero {
-    margin-top: 80px; 
-  }
-}
-@media (max-width: 768px) {
-  .kidz-hero {
-    margin-top: 80px; 
-  }
-}
-@media (max-width: 767.98px) {
-  .testimonial-item {
-    margin-bottom: 16px;
-  }
-
-  .testimonial-item:last-child {
-    margin-bottom: 20px;
-  }
-}
-@media (max-width: 768px) {
-  .page-hero { margin-top: 80px; } 
-}
-
-
-/* stop vertical centering */
-.tab-content,
-.tab-pane,
-.section-services-item {
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-}
-
-/* remove full-height that causes centering */
-.tab-pane {
-  min-height: 0 !important;
-  height: auto !important;
-}
-
-
-
-
-
-.kidz-hero__img {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-width: 100%;
-}
-
-/* FULL WIDTH WHITE SECTION fixes the ugly cut sides */
-.kidz-overview {
-  background: #fff;
-  margin-top: -70px;         /* overlap hero slightly */
-  padding: 70px 0 24px;      /* keeps content away from hero */
-  position: relative;
-  z-index: 2;
-}
-
-.kidz-overview__inner {
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-.kidz-overview__grid {
-  display: grid;
-  grid-template-columns: 220px 1fr; /* logo column + text */
-  gap: 36px;
-  align-items: start;
-}
-
-.kidz-overview__logo img {
-  max-width: 220px;
-  height: auto;
-  display: block;
-}
-
-.kidz-overview__tag {
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.65;
-  margin-bottom: 8px;
-}
-
-.kidz-overview__title {
-  margin: 0 0 12px 0;
-  line-height: 1.15;
-}
-
-.kidz-overview__h {
-  margin: 18px 0 10px 0;
-}
-
-.kidz-overview__p {
-  margin: 0 0 14px 0;
-  max-width: 70ch; /* better readability */
-  opacity: 0.9;
-}
-
-/* Swiper spacing */
-.kidz-main {
-  margin-top: 22px;
-}
-
-.kidzmondo-gallery {
-  margin-top: 10px;
-}
-
-/* Mobile: stack logo above text */
+/* =======================
+   RESPONSIVE
+======================= */
 @media (max-width: 991px) {
   .kidz-overview {
     margin-top: -28px;
@@ -3052,5 +3040,11 @@ background-image: url("/image/page-title/our-ventures (1).png");
   .kidz-overview__p {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .kidz-hero {
+    margin-top: 80px;
   }
 }

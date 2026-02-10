@@ -16,11 +16,9 @@ export default function KarnavaliPage() {
   const swiperRef = useRef<SwiperClass | null>(null);
 
   useEffect(() => {
-    const update = () => {
-      swiperRef.current?.update();
-    };
-
+    const update = () => swiperRef.current?.update();
     const t = setTimeout(update, 120);
+
     window.addEventListener("resize", update);
     window.addEventListener("orientationchange", update);
 
@@ -31,92 +29,79 @@ export default function KarnavaliPage() {
     };
   }, []);
 
-  const slides = [
-    "/image/karnavali/karnavali 2.png",
-    "/image/karnavali/karnavali 3.png",
-    "/image/karnavali/karnavali 3.jpg",
-    "/image/karnavali/karnavali 4.jpg",
-    "/image/karnavali/karnavali 5.jpg",
-    "/image/karnavali/karnavali 6.jpg",
-    "/image/karnavali/karnavali 7  1.jpg",
+  const gallery = [
+    { src: "/image/karnavali/karnavali 2.png", alt: "Karnavali View 1" },
+    { src: "/image/karnavali/karnavali 3.png", alt: "Karnavali View 2" },
+    { src: "/image/karnavali/karnavali 3.jpg", alt: "Karnavali View 3" },
+    { src: "/image/karnavali/karnavali 4.jpg", alt: "Karnavali View 4" },
+    { src: "/image/karnavali/karnavali 5.jpg", alt: "Karnavali View 5" },
+    { src: "/image/karnavali/karnavali 6.jpg", alt: "Karnavali View 6" },
+    { src: "/image/karnavali/karnavali 7  1.jpg", alt: "Karnavali View 7" },
   ];
 
   return (
     <>
-      {/* HERO IMAGE */}
+      {/* HERO */}
       <div className="kidz-hero">
         <Image
           src="/image/page-title/karnavali-ourprojects-banner.jpg"
           alt="Karnavali Banner"
           width={1920}
           height={1080}
-          style={{ width: "100%", height: "auto", maxWidth: "100%" }}
           priority
+          className="kidz-hero__img"
         />
       </div>
 
-      <div className="tf-container">
-        <div className="row">
-          <div className="col-12">
-            <div className="blog-content blog-details-2-content blog-details-content">
-              <div className="blog-details-top">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    width: "100%",
-                    // padding: "0px 0",
-                    margin: 0,
-                    marginTop: "-60px",
-                  }}
-                >
-                  <Image
-                    src="/image/logos/Karnavali logo.svg"
-                    alt="KidzMondo"
-                    width={260}
-                    height={80}
-                    priority
-                    style={{ height: "auto" }}
-                  />
-                </div>
-              </div>
-
-              {/* Main Image */}
-              <div className="image-blog">
+      {/* OVERVIEW (logo left + text right) */}
+      <section className="kidz-overview">
+        <div className="tf-container">
+          <div className="kidz-overview__inner">
+            <div className="kidz-overview__grid">
+              {/* Left: Logo */}
+              <div className="kidz-overview__logo">
                 <Image
-                  src="/image/karnavali/karnavali 1.jpg"
+                  src="/image/logos/Karnavali logo.svg"
                   alt="Karnavali"
-                  width={910}
-                  height={512}
-                  style={{ width: "100%", height: "auto" }}
+                  width={260}
+                  height={90}
+                  priority
                 />
               </div>
 
-              {/* Intro Text */}
-              <div className="desc-blog">
-                <h5 className="title-desc">
-                  The ultimate indoor carnival experience — reinvented for all
-                  age groups.
+              {/* Right: Text */}
+              <div className="kidz-overview__content">
+                {/* <h1 className="kidz-overview__title">Karnavali</h1> */}
+
+                <h5 className="kidz-overview__h">
+                  The ultimate indoor carnival experience — reinvented for all age groups.
                 </h5>
-                <p className="body-2">
-                  Karnavali is a dynamic, indoor Family Entertainment Center
-                  designed as a multi-anchor attraction that brings the energy,
-                  excitement, and magic of a carnival into a modern, immersive
-                  indoor setting. With major rides, arcades, simulators, active
-                  play zones, and entertainment experiences for every age
-                  bracket, Karnavali offers a vibrant world of fun under one
-                  roof.
+
+                <p className="kidz-overview__p">
+                  Karnavali is a dynamic, indoor Family Entertainment Center designed as a
+                  multi-anchor attraction that brings the energy, excitement, and magic of a
+                  carnival into a modern, immersive indoor setting. With major rides, arcades,
+                  simulators, active play zones, and entertainment experiences for every age
+                  bracket, Karnavali offers a vibrant world of fun under one roof.
                 </p>
-                <p className="body-2">
-                  From heart-racing attractions to classic carnival snacks, the
-                  environment is crafted to engage families, teens, and young
-                  children alike, making it a go-to destination for unforgettable
-                  shared moments.
+
+                <p className="kidz-overview__p">
+                  From heart-racing attractions to classic carnival snacks, the environment is
+                  crafted to engage families, teens, and young children alike, making it a go-to
+                  destination for unforgettable shared moments.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* ✅ SWIPER (NO cols-img wrapper) */}
+      {/* MAIN (swiper + sections) */}
+      <div className="tf-container kidz-main">
+        <div className="row">
+          <div className="col-12">
+            <div className="blog-content blog-details-2-content blog-details-content">
+              {/* SWIPER */}
               <div className="karnavali-gallery">
                 <Swiper
                   modules={[Navigation]}
@@ -130,23 +115,17 @@ export default function KarnavaliPage() {
                   observeParents
                   resizeObserver
                   watchOverflow
-                  onSwiper={(s) => {
-                    swiperRef.current = s;
-                  }}
+                  onSwiper={(s) => (swiperRef.current = s)}
                 >
-                  {slides.map((src, i) => (
-                    <SwiperSlide key={src}>
+                  {gallery.map((img, i) => (
+                    <SwiperSlide key={img.src}>
                       <div className="image-blog">
                         <Image
-                          src={src}
-                          alt={`Karnavali View ${i + 1}`}
+                          src={img.src}
+                          alt={img.alt}
                           width={444}
                           height={334}
-                          style={{
-                            width: "100%",
-                            height: "auto",
-                            display: "block",
-                          }}
+                          style={{ width: "100%", height: "auto", display: "block" }}
                           priority={i < 2}
                         />
                       </div>
@@ -155,37 +134,41 @@ export default function KarnavaliPage() {
                 </Swiper>
               </div>
 
-              {/* CONTENT SECTIONS */}
-              <div className="list-desc">
+              {/* SECTIONS */}
+              <div className="list-desc" style={{ marginTop: 26 }}>
                 <div className="desc-blog">
-                  <h5 className="title-desc">A Multisensory Indoor Carnival</h5>
+                  <h5 className="title-desc" style={{ marginTop: "50px" }}>
+                    A Multisensory Indoor Carnival
+                  </h5>
                   <p className="body-2">
-                    Karnavali blends thrill rides, interactive games, sensory
-                    play, and themed entertainment into an experience that
-                    appeals to a wide audience.
+                    Karnavali blends thrill rides, interactive games, sensory play, and themed
+                    entertainment into an experience that appeals to a wide audience.
                   </p>
                 </div>
 
-                <div className="desc-blog" style={{ marginTop: "50px" }}>
-                  <h5 className="title-desc">Entertainment</h5>
+                <div className="desc-blog">
+                  <h5 className="title-desc" style={{ marginTop: "50px" }}>
+                    Entertainment
+                  </h5>
                   <p className="body-2">
-                    Guests can choose between a wide range of activities,
-                    including:
+                    Guests can choose between a wide range of activities, including:
                   </p>
                 </div>
 
+                {/* keep your existing component */}
                 <Testimonials />
 
                 <div className="desc-blog">
-                  <h5 className="title-desc">Concept Vision</h5>
+                  <h5 className="title-desc" style={{ marginTop: "50px" }}>
+                    Concept Vision
+                  </h5>
                   <p className="body-2">
-                    Karnavali aims to create a one-of-a-kind indoor entertainment
-                    venue where children, teens, and families enjoy diverse
-                    activities inspired by the spirit of a joyful carnival.
+                    Karnavali aims to create a one-of-a-kind indoor entertainment venue where
+                    children, teens, and families enjoy diverse activities inspired by the spirit
+                    of a joyful carnival.
                     <br />
-                    Guests step into a world filled with color, laughter, motion,
-                    and excitement; an escape from routine into a place where
-                    imagination takes the lead.
+                    Guests step into a world filled with color, laughter, motion, and excitement;
+                    an escape from routine into a place where imagination takes the lead.
                   </p>
                 </div>
               </div>
@@ -194,6 +177,7 @@ export default function KarnavaliPage() {
         </div>
       </div>
 
+      {/* CONTACT */}
       <Contact />
     </>
   );

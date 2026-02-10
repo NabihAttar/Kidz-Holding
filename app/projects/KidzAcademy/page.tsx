@@ -1,195 +1,151 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperClass } from "swiper";
+
 import "swiper/css";
 import "swiper/css/navigation";
 
 export default function KidzAcademyPage() {
+  const swiperRef = useRef<SwiperClass | null>(null);
+
+  useEffect(() => {
+    const update = () => swiperRef.current?.update();
+    const t = setTimeout(update, 120);
+
+    window.addEventListener("resize", update);
+    window.addEventListener("orientationchange", update);
+
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", update);
+      window.removeEventListener("orientationchange", update);
+    };
+  }, []);
+
+  const gallery = [
+    { src: "/image/Kidz academy/kidz-academy2.png", alt: "KidzAcademy activity 1" },
+    { src: "/image/Kidz academy/kidz-academy3.png", alt: "KidzAcademy activity 2" },
+    { src: "/image/Kidz academy/kidz-academy2.png", alt: "KidzAcademy activity 3" },
+    { src: "/image/Kidz academy/kidz-academy3.png", alt: "KidzAcademy activity 4" },
+    { src: "/image/Kidz academy/kidz-academy2.png", alt: "KidzAcademy activity 5" },
+    { src: "/image/Kidz academy/kidz-academy3.png", alt: "KidzAcademy activity 6" },
+  ];
+
   return (
     <>
-      <div className="image img-top">
+      {/* HERO */}
+      <div className="kidz-hero">
         <Image
           src="/image/page-title/our-ventures (1).png"
           alt="KidzAcademy Hero"
-          className="lazyload"
           width={1920}
           height={1080}
-          style={{
-            width: "100%",
-            height: "auto",
-            maxWidth: "100%",
-          }}
+          priority
+          className="kidz-hero__img"
         />
       </div>
 
-      <div className="tf-container">
-        <div className="row">
-          <div className="col-12">
-            <div className="blog-content blog-details-2-content blog-details-content">
-              {/* Title */}
-              <div className="blog-details-top">
-                <h2
-                  style={{
-                    color: "#000000",
-                    fontFamily: "Arial, Helvetica, sans-serif",
-                    fontSize: "32px",
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    padding: "20px 0",
-                    margin: 0,
-                  }}
-                >
-                  KidzAcademy
-                </h2>
-              </div>
-
-              {/* Main Image */}
-              <div className="image-blog">
+      {/* OVERVIEW (logo left + text right) */}
+      <section className="kidz-overview">
+        <div className="tf-container">
+          <div className="kidz-overview__inner">
+            <div className="kidz-overview__grid">
+              {/* Left: Logo */}
+              <div className="kidz-overview__logo">
                 <Image
-                  src="/image/Kidz academy/kidz-academy.png"
-                  alt="KidzAcademy learning environment"
-                  className="lazyload"
-                  width={910}
-                  height={512}
+                  src="/image/logos/KidzAcademy logo.svg"
+                  alt="KidzAcademy"
+                  width={260}
+                  height={90}
+                  priority
                 />
               </div>
 
-              {/* Concept Text */}
-              <div className="desc-blog">
-                <h5 className={"title-desc"}>Concept</h5>
-                <p className="body-2">
-                  Kidz Academy is a dance and movement center that brings kids
-                  together around dance and sports. This center is a destination
-                  that meets the physical interests of each of your children, be
-                  it sports, dance, or gymnastics.
-                  <br />
-                  <br />
-                  Kidz Academy offers cool extracurricular activities including
-                  dance classes, Taekwondo, MMA, gymnastics and even yoga for
-                  kids from age four to fifteen in a multitude of styles.
-                  <br />
-                  <br />
-                  Children and teenagers who want something other than homework
-                  to look forward to in the afternoon can sign up for afternoon
-                  classes. They can also enroll for condensed programs during
-                  holidays and vacations.
+              {/* Right: Text */}
+              <div className="kidz-overview__content">
+                <h1 className="kidz-overview__title">KidzAcademy</h1>
+
+                <h5 className="kidz-overview__h">Concept</h5>
+                <p className="kidz-overview__p">
+                  Kidz Academy is a dance and movement center that brings kids together around
+                  dance and sports. This center is a destination that meets the physical interests
+                  of each of your children, be it sports, dance, or gymnastics.
+                </p>
+                <p className="kidz-overview__p">
+                  Kidz Academy offers cool extracurricular activities including dance classes,
+                  Taekwondo, MMA, gymnastics and even yoga for kids from age four to fifteen in a
+                  multitude of styles.
+                </p>
+                <p className="kidz-overview__p">
+                  Children and teenagers who want something other than homework to look forward to
+                  in the afternoon can sign up for afternoon classes. They can also enroll for
+                  condensed programs during holidays and vacations.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* IMAGE SLIDER SECTION */}
-              <div className="cols-img">
+      {/* MAIN (swiper + sections) */}
+      <div className="tf-container kidz-main">
+        <div className="row">
+          <div className="col-12">
+            <div className="blog-content blog-details-2-content blog-details-content">
+              {/* ✅ SWIPER (no cols-img wrapper) */}
+              <div className="kidzacademy-gallery">
                 <Swiper
                   modules={[Navigation]}
                   navigation
                   spaceBetween={24}
                   slidesPerView={1}
-                  loop={true}
+                  loop
                   className="kidzacademy-slider"
-                  breakpoints={{
-                    768: {
-                      slidesPerView: 2,
-                    },
-                  }}
+                  breakpoints={{ 768: { slidesPerView: 2 } }}
+                  observer
+                  observeParents
+                  resizeObserver
+                  watchOverflow
+                  onSwiper={(s) => (swiperRef.current = s)}
                 >
-                  {/* 1 */}
-                  <SwiperSlide>
-                    <div className="image-blog">
-                      <Image
-                        src="/image/Kidz academy/kidz-academy2.png"
-                        alt="KidzAcademy creative workshop A"
-                        className="lazyload"
-                        width={444}
-                        height={334}
-                      />
-                    </div>
-                  </SwiperSlide>
-
-                  {/* 2 */}
-                  <SwiperSlide>
-                    <div className="image-blog">
-                      <Image
-                        src="/image/Kidz academy/kidz-academy3.png"
-                        alt="KidzAcademy STEM activity A"
-                        className="lazyload"
-                        width={444}
-                        height={334}
-                      />
-                    </div>
-                  </SwiperSlide>
-
-                  {/* 3 (duplicate) */}
-                  <SwiperSlide>
-                    <div className="image-blog">
-                      <Image
-                        src="/image/Kidz academy/kidz-academy2.png"
-                        alt="KidzAcademy creative workshop B"
-                        className="lazyload"
-                        width={444}
-                        height={334}
-                      />
-                    </div>
-                  </SwiperSlide>
-
-                  {/* 4 (duplicate) */}
-                  <SwiperSlide>
-                    <div className="image-blog">
-                      <Image
-                        src="/image/Kidz academy/kidz-academy3.png"
-                        alt="KidzAcademy STEM activity B"
-                        className="lazyload"
-                        width={444}
-                        height={334}
-                      />
-                    </div>
-                  </SwiperSlide>
-
-                  {/* 5 (duplicate) */}
-                  <SwiperSlide>
-                    <div className="image-blog">
-                      <Image
-                        src="/image/Kidz academy/kidz-academy2.png"
-                        alt="KidzAcademy creative workshop C"
-                        className="lazyload"
-                        width={444}
-                        height={334}
-                      />
-                    </div>
-                  </SwiperSlide>
-
-                  {/* 6 (duplicate) */}
-                  <SwiperSlide>
-                    <div className="image-blog">
-                      <Image
-                        src="/image/Kidz academy/kidz-academy3.png"
-                        alt="KidzAcademy STEM activity C"
-                        className="lazyload"
-                        width={444}
-                        height={334}
-                      />
-                    </div>
-                  </SwiperSlide>
+                  {gallery.map((img, i) => (
+                    <SwiperSlide key={`${img.src}-${i}`}>
+                      <div className="image-blog">
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          width={444}
+                          height={334}
+                          style={{ width: "100%", height: "auto", display: "block" }}
+                          priority={i < 2}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
               </div>
 
-              {/* Benefits Section */}
-              <div className="list-desc">
+              {/* Benefits */}
+              <div className="list-desc" style={{ marginTop: 26 }}>
                 <div className="desc-blog">
-                  <h5 className="title-desc">Benefits</h5>
+                  <h5 className="title-desc" style={{ marginTop: "50px" }}>
+                    Benefits
+                  </h5>
                   <p className="body-2">
-                    Classes at Kidz Academy help develop a healthy lifestyle and
-                    incorporate fitness as a natural part of children&apos;s
-                    lives by making fitness fun. Classes incorporate key
-                    childhood development elements like leadership, respect,
-                    teamwork, confidence, self-esteem, memory, creativity,
-                    coordination, and cultural awareness.
+                    Classes at Kidz Academy help develop a healthy lifestyle and incorporate
+                    fitness as a natural part of children&apos;s lives by making fitness fun.
+                    Classes incorporate key childhood development elements like leadership, respect,
+                    teamwork, confidence, self-esteem, memory, creativity, coordination, and
+                    cultural awareness.
                     <br />
                     <br />
-                    Kidz Academy provides children with a chance to spend their
-                    valuable time productively, having fun while at the same
-                    time reaping physical and educational benefits.
+                    Kidz Academy provides children with a chance to spend their valuable time
+                    productively, having fun while at the same time reaping physical and educational
+                    benefits.
                   </p>
                 </div>
               </div>

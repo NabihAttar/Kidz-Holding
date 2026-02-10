@@ -14,12 +14,7 @@ export default function TheEscapeParkandResort() {
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    const update = () => {
-      if (swiperRef.current && typeof swiperRef.current.update === "function") {
-        swiperRef.current.update();
-      }
-    };
-
+    const update = () => swiperRef.current?.update?.();
     const t = setTimeout(update, 120);
 
     window.addEventListener("resize", update);
@@ -32,87 +27,81 @@ export default function TheEscapeParkandResort() {
     };
   }, []);
 
+  const gallery = [
+    { src: "/image/resortAndPark/resort 1.jpg", alt: "Escape Park View 1" },
+    { src: "/image/resortAndPark/resort 2.jpg", alt: "Escape Park View 2" },
+    { src: "/image/resortAndPark/park 3.jpg", alt: "Escape Park View 3" },
+    { src: "/image/resortAndPark/park 4.jpg", alt: "Escape Park View 4" },
+    { src: "/image/resortAndPark/park 5.jpg", alt: "Escape Park View 5" },
+    { src: "/image/resortAndPark/park 6.jpg", alt: "Escape Park View 6" },
+  ];
+
   return (
     <>
-      {/* HERO IMAGE */}
-      <div className="page-hero">
+      {/* HERO */}
+      <div className="kidz-hero">
         <Image
           src="/image/page-title/resort banner.jpg"
           alt="The Escape Park & Resort Hero"
           width={1920}
           height={1080}
-          style={{ width: "100%", height: "auto", maxWidth: "100%" }}
           priority
+          className="kidz-hero__img"
         />
       </div>
 
-      <div className="tf-container">
-        <div className="row">
-          <div className="col-12">
-            <div className="blog-content blog-details-2-content blog-details-content">
-              <div className="blog-details-top">
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      width: "100%",
-      // padding: "0px 0",
-      margin: 0,
-      marginTop: "-60px",
-    }}
-  >
-    <Image
-      src="/image/logos/The Escape logo.svg"
-      alt="KidzMondo"
-      width={260}
-      height={80}
-      priority
-      style={{ height: "auto" }}
-    />
-  </div>
-</div>
-
-              {/* MAIN IMAGE */}
-              <div className="image-blog">
+      {/* OVERVIEW (logo left + text right) */}
+      <section className="kidz-overview">
+        <div className="tf-container">
+          <div className="kidz-overview__inner">
+            <div className="kidz-overview__grid">
+              {/* Left: Logo */}
+              <div className="kidz-overview__logo">
                 <Image
-                  src="/image/resortAndPark/resort pic 1.jpg"
+                  src="/image/logos/The Escape logo.svg"
                   alt="The Escape Park & Resort"
-                  width={910}
-                  height={512}
-                  style={{ width: "100%", height: "auto" }}
+                  width={260}
+                  height={90}
+                  priority
                 />
               </div>
 
-              <div className="desc-blog">
-                <h5 className="title-desc">
-                  A natural sanctuary designed for families to reconnect,
-                  recharge, and rediscover,
+              {/* Right: Text */}
+              <div className="kidz-overview__content">
+                {/* <h1 className="kidz-overview__title">The Escape Park &amp; Resort</h1> */}
+
+                <h5 className="kidz-overview__h">
+                  A natural sanctuary designed for families to reconnect, recharge, and rediscover,
                   <br />
                   the joy of outdoor play.
                 </h5>
 
-                <p className="body-2">
-                  The Escape Park &amp; Resort is a green refuge that transports
-                  families into a world of lush landscapes, flowing water, and
-                  immersive nature experiences. Built as a multi-sensory
-                  destination, it invites children, teens, and adults to step
-                  away from the speed and noise of modern life and enjoy
-                  meaningful moments together in the outdoors.
+                <p className="kidz-overview__p">
+                  The Escape Park &amp; Resort is a green refuge that transports families into a world
+                  of lush landscapes, flowing water, and immersive nature experiences. Built as a
+                  multi-sensory destination, it invites children, teens, and adults to step away from
+                  the speed and noise of modern life and enjoy meaningful moments together in the outdoors.
                 </p>
 
-                <p className="body-2">
-                  Grounded in the principles of nature-based learning and
-                  wellness, the park offers an environment where children can
-                  explore, play, and develop essential motor and sensory skills.
-                  Studies show that outdoor environments rich in natural
-                  elements enhance creativity, boost physical activity, and
-                  contribute to overall emotional and mental wellbeing — all of
-                  which form the cornerstone of this concept.
+                <p className="kidz-overview__p">
+                  Grounded in the principles of nature-based learning and wellness, the park offers an
+                  environment where children can explore, play, and develop essential motor and sensory skills.
+                  Studies show that outdoor environments rich in natural elements enhance creativity, boost
+                  physical activity, and contribute to overall emotional and mental wellbeing — all of which
+                  form the cornerstone of this concept.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* SWIPER (NO cols-img) */}
+      {/* MAIN (swiper + sections) */}
+      <div className="tf-container kidz-main">
+        <div className="row">
+          <div className="col-12">
+            <div className="blog-content blog-details-2-content blog-details-content">
+              {/* SWIPER */}
               <div className="escapepark-gallery">
                 <Swiper
                   modules={[Navigation]}
@@ -126,23 +115,14 @@ export default function TheEscapeParkandResort() {
                   observeParents
                   resizeObserver
                   watchOverflow
-                  onSwiper={(swiper) => {
-                    swiperRef.current = swiper;
-                  }}
+                  onSwiper={(s) => (swiperRef.current = s)}
                 >
-                  {[
-                    "/image/resortAndPark/resort 1.jpg",
-                    "/image/resortAndPark/resort 2.jpg",
-                    "/image/resortAndPark/park 3.jpg",
-                    "/image/resortAndPark/park 4.jpg",
-                    "/image/resortAndPark/park 5.jpg",
-                    "/image/resortAndPark/park 6.jpg",
-                  ].map((src, i) => (
-                    <SwiperSlide key={src}>
+                  {gallery.map((img, i) => (
+                    <SwiperSlide key={`${img.src}-${i}`}>
                       <div className="image-blog">
                         <Image
-                          src={src}
-                          alt={`Escape Park Activity ${i + 1}`}
+                          src={img.src}
+                          alt={img.alt}
                           width={444}
                           height={334}
                           style={{ width: "100%", height: "auto", display: "block" }}
@@ -154,39 +134,31 @@ export default function TheEscapeParkandResort() {
                 </Swiper>
               </div>
 
-              <div className="list-desc">
+              {/* FACILITY */}
+              <div className="list-desc" style={{ marginTop: 26 }}>
                 <div className="desc-blog">
                   <h5 className="title-desc">The Facility</h5>
                   <p className="body-2">
-                    Designed as a fully integrated nature retreat, The Escape
-                    Park &amp; Resort features:
-                    <br />
-                    - A scenic pond, surrounded by trees, flowers, and walking paths
-                    <br />
-                    - Gazebos and shaded relaxation areas
-                    <br />
-                    - A man-made river ideal for family fishing activities
-                    <br />
-                    - Indoor and outdoor dining areas
-                    <br />
-                    - A dedicated birthday and events venue
-                    <br />
-                    - Private rental zones for barbecues, picnics, and camping
-                    <br />
-                    - Animal enclosures for hands-on exploration and learning
-                    <br />
-                    - A resort area with bungalows and a swimming pool
+                    Designed as a fully integrated nature retreat, The Escape Park &amp; Resort features:
+                    <br />- A scenic pond, surrounded by trees, flowers, and walking paths
+                    <br />- Gazebos and shaded relaxation areas
+                    <br />- A man-made river ideal for family fishing activities
+                    <br />- Indoor and outdoor dining areas
+                    <br />- A dedicated birthday and events venue
+                    <br />- Private rental zones for barbecues, picnics, and camping
+                    <br />- Animal enclosures for hands-on exploration and learning
+                    <br />- A resort area with bungalows and a swimming pool
                   </p>
                 </div>
               </div>
 
-              {/* end content */}
+              {/* EXTRA SECTIONS */}
             </div>
           </div>
         </div>
       </div>
-
       <ParkandResortServices />
+
     </>
   );
 }
