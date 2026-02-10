@@ -37,7 +37,7 @@ export default function Brands1() {
       <div className="tf-container position-relative">
         <div className="row">
           <div className="col-12">
-            <h5 className="text text-center mb-28" style={{color:"black"}}>Partnerships</h5>
+            <h5 className="text text-center mb-28" style={{color:"black"}}>Marketing Partners</h5>
 
             <div className="brand-marquee">
               <div className="brand-marquee__viewport">
