@@ -169,8 +169,30 @@ export default function MobileMenu() {
                 Industries We Serve 
               </Link>
             </li>
-            {/* PARTNERSHIP (dropdown) */}
             <li
+        className={`menu-item ${
+          isMenuActive({ href: "/Franchise-Partnership" } as MenuLink)
+            ? "current-menu-item"
+            : ""
+        }`}
+      >
+        <Link href="/Franchise-Partnership" className="item-link">
+          Business Ventures
+        </Link>
+      </li>
+       <li
+              className={`menu-item ${
+                isMenuActive({ href: "/careers" } as MenuLink)
+                  ? "current-menu-mobile-item"
+                  : ""
+              }`}
+            >
+              <Link href="/careers" className="item-link">
+                Careers
+              </Link>
+            </li>
+            {/* PARTNERSHIP (dropdown) */}
+            {/* <li
               className={`menu-item menu-item-has-children-mobile ${
                 isMenuParentActive(partnershipLinks)
                   ? "current-menu-mobile-item"
@@ -204,7 +226,7 @@ export default function MobileMenu() {
                   ))}
                 </ul>
               </div>
-            </li>
+            </li> */}
 
             {/* OUR VENTURES */}
             {/* <li
