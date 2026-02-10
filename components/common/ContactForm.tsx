@@ -20,48 +20,53 @@ export default function ContactForm({
   const [success, setSuccess] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
 
-  const handleShowMessage = () => {
+  // ✅ dropdown state
+  const [helpTopic, setHelpTopic] = useState("");
+
+  const handleShowMessage = (ok: boolean) => {
+    setSuccess(ok);
     setShowMessage(true);
-    setTimeout(() => {
-      setShowMessage(false);
-    }, 2000);
+    setTimeout(() => setShowMessage(false), 2000);
   };
 
-  const sendEmail = async (
-    e: React.FormEvent<HTMLFormElement>
-  ): Promise<void> => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
+
+    // ✅ validate custom dropdown (since it's not native select)
+    if (!helpTopic) {
+      alert("Please select how we can help you.");
+      handleShowMessage(false);
+      return;
+    }
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+
     const email = (formData.get("email") as string)?.trim() || "";
 
     try {
       const response = await axios.post(
         "https://express-brevomail.vercel.app/api/contacts",
-        { email }
+        { email } // keeping your backend payload as-is
       );
 
       if ([200, 201].includes(response.status)) {
         form.reset();
-        setSuccess(true);
-        handleShowMessage();
+        setHelpTopic(""); // ✅ reset dropdown state
+        handleShowMessage(true);
       } else {
-        setSuccess(false);
-        handleShowMessage();
+        handleShowMessage(false);
       }
     } catch (error) {
-      setSuccess(false);
-      handleShowMessage();
       form.reset();
+      setHelpTopic("");
+      handleShowMessage(false);
     }
   };
 
   return (
     <form onSubmit={sendEmail} className={parentClass}>
-      <h5
-        className={`title-form ${isTitleCenter ? "text-center" : ""}`}
-      >
+      <h5 className={`title-form ${isTitleCenter ? "text-center" : ""}`}>
         {title}
       </h5>
 
@@ -70,21 +75,12 @@ export default function ContactForm({
       </fieldset>
 
       <fieldset>
-        <input
-          required
-          type="number"
-          placeholder="Phone number"
-          name="phone"
-        />
+        {/* ✅ better than type="number" for phone */}
+        <input required type="tel" placeholder="Phone number" name="phone" />
       </fieldset>
 
       <fieldset>
-        <input
-          required
-          type="email"
-          name="email"
-          placeholder="Email address"
-        />
+        <input required type="email" name="email" placeholder="Email address" />
       </fieldset>
 
       <fieldset>
@@ -95,7 +91,16 @@ export default function ContactForm({
             "Option 2",
             "Option 3",
           ]}
+          selectedValue={helpTopic}
+          onChange={(val) =>
+            setHelpTopic(val === "How can we help you?" ? "" : val)
+          }
+          menuHeight={240} // ✅ fixed height + scroll
+          buttonClassName="form-control list"
         />
+
+        {/* ✅ ensures FormData includes the dropdown value */}
+        <input type="hidden" name="helpTopic" value={helpTopic} />
       </fieldset>
 
       <fieldset>
@@ -107,15 +112,9 @@ export default function ContactForm({
         />
       </fieldset>
 
-      <div
-        className={`tfSubscribeMsg footer-sub-element ${
-          showMessage ? "active" : ""
-        }`}
-      >
+      <div className={`tfSubscribeMsg footer-sub-element ${showMessage ? "active" : ""}`}>
         {success ? (
-          <p style={{ color: "rgb(52, 168, 83)" }}>
-            Form submitted successfully.
-          </p>
+          <p style={{ color: "rgb(52, 168, 83)" }}>Form submitted successfully.</p>
         ) : (
           <p style={{ color: "red" }}>Something went wrong</p>
         )}
