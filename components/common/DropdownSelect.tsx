@@ -12,6 +12,10 @@ type DropdownSelectProps = {
   // UI
   menuHeight?: number;
   buttonClassName?: string;
+
+  // ✅ support old prop used in your codebase (typo included)
+  addtionalParentClass?: string;
+  additionalParentClass?: string;
 };
 
 export default function DropdownSelect({
@@ -20,15 +24,16 @@ export default function DropdownSelect({
   onChange,
   menuHeight = 260,
   buttonClassName = "",
+  addtionalParentClass = "",
+  additionalParentClass = "",
 }: DropdownSelectProps) {
   const [open, setOpen] = useState(false);
 
-  // Uncontrolled fallback (for old calls that don't pass onChange/selectedValue)
+  // ✅ fallback if someone uses <DropdownSelect options={[...]} /> only
   const [internalValue, setInternalValue] = useState("");
 
   const wrapRef = useRef<HTMLDivElement | null>(null);
 
-  // close on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
@@ -39,7 +44,6 @@ export default function DropdownSelect({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // close on ESC
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -58,8 +62,14 @@ export default function DropdownSelect({
     setOpen(false);
   };
 
+  const parentClass = `${addtionalParentClass} ${additionalParentClass}`.trim();
+
   return (
-    <div ref={wrapRef} style={{ position: "relative", width: "100%" }}>
+    <div
+      ref={wrapRef}
+      className={parentClass}
+      style={{ position: "relative", width: "100%" }}
+    >
       <button
         type="button"
         aria-haspopup="listbox"
@@ -91,6 +101,8 @@ export default function DropdownSelect({
             border: "1px solid #e5e5e5",
             borderRadius: 8,
             zIndex: 9999,
+
+            // ✅ fixed size + scroll
             height: menuHeight,
             overflowY: "auto",
             overflowX: "hidden",
