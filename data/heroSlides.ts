@@ -18,28 +18,46 @@ export const slides = [
 
 export const slides2 = [
   {
-    title: "Edutainment - KidzMondo",
+    title: "KidzMondo",
     subtitle:
-    "Where Learning Meets Fun\nBuilding cities that spark imagination, creativity, and real-world skills for every child.",
-    buttonText: "Our brands",
+      "An immersive edutainment city designed to teach real-world skills through role play and experiential learning.",
+    buttonText: "Learn More",
+    href: "/projects/KidzMondo",
   },
   {
-    title: "Outdoor Experience - \nThe Escape Park and Resort",
+    title: "Escape Park & Resort",
     subtitle:
-    "Building Tomorrow’s Leisure and Entertainment\nDelivering Impact for families, partners and investors",
-    buttonText: "Franchise",
-  },
-  {
-    title: "Social Entertainment Hub",
-    subtitle:
-      "Where Energy, Flavor & Play Come Together\nBlending adrenaline-filled games, great food, and unforgettable moments",
-    buttonText: "Investor Relations",
+      "An outdoor leisure destination designed to bring families together through nature,play, and shared experiences.",
+    buttonText: "Learn More",
+    href: "/projects/TheEscapeParkandResort",
   },
   {
     title: "Karnavali",
     subtitle:
-      "Empowering the next generation through play\nCreating destinations where curiosity grows and fun never ends",
-    buttonText: "Investor Relations",
+      "An indoor family entertainment destination designed to bring the energy of a carnival into a modern, immersive experience for all age groups.",
+    buttonText: "Learn More",
+    href: "/projects/Karnavali",
+  },
+  {
+    title: "BOWL N ROCK",
+    subtitle:
+      "An eatertainment destination designed to bring people together through premium dining and immersive gaming experiences.",
+    buttonText: "Learn More",
+    href: "/projects/BowlNRock",
+  },
+  {
+    title: "Star District",
+    subtitle:
+      "An immersive entertainment destination where kids and teens explore talent, creativity, and confidence.",
+    buttonText: "Learn More",
+    href: "/projects/StarDistrict",
+  },
+  {
+    title: "KM Innovation Center",
+    subtitle:
+      "A future-focused learning destination designed to equip children with technology, creativity, and problem-solving skills.",
+    buttonText: "Learn More",
+    href: "/projects/KMInnovationCenter",
   },
 ];
 

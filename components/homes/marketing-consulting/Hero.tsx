@@ -1,5 +1,5 @@
 "use client";
-import { slides2} from "@/data/heroSlides";
+import { slides2 } from "@/data/heroSlides";
 import Link from "next/link";
 import React from "react";
 import { Autoplay, EffectFade, Navigation } from "swiper/modules";
@@ -51,10 +51,7 @@ export default function Hero() {
                       ))}
                     </div>
                     <div className="tf-fade-top fade-item-3">
-                      <Link
-                        href={`/Franchise-Partnership`}
-                        className="tf-btn style-1 bg-white"
-                      >
+                      <Link href={slide.href} className="tf-btn style-1 bg-white">
                         <span>{slide.buttonText}</span>
                       </Link>
                     </div>

@@ -521,14 +521,26 @@ background-image: url("/image/page-title/our-ventures (1).png");
       }
       &.img-h5-3 {
         &::before {
-          background-image: url("/image/section/Hero-Banner-bowling.jpg");
+          background-image: url("/image/section/Karanavali-banner.jpg");
           // opacity: 0.5;
         }
       }
 
         &.img-h5-4 {
         &::before {
-          background-image: url("/image/section/Karanavali-banner.jpg");
+          background-image: url("/image/section/Hero-Banner-bowling.jpg");
+          // opacity: 0.5;
+        }
+      }
+      &.img-h5-5 {
+        &::before {
+          background-image: url("/image/section/Star.jpg");
+          // opacity: 0.5;
+        }
+      }
+      &.img-h5-6 {
+        &::before {
+          background-image: url("/image/section/KM.jpg");
           // opacity: 0.5;
         }
       }
